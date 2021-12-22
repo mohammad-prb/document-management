@@ -1,0 +1,762 @@
+body
+{
+    min-width: 965px;
+}
+
+form
+{
+    overflow: auto;
+}
+
+select
+{
+    width: 100%;
+    position: absolute;
+    top: 10px;
+    right: 0px;
+    padding: 4px;
+    margin: 0px;
+    border-radius: 5px;
+    font-family: vazir;
+    font-size: 1rem;
+    background-color: hsl(0, 0%, 30%);
+    color: white;
+    border: none;
+}
+
+select:focus
+{
+    outline: none;
+}
+
+input
+{
+    direction: rtl;
+    width: calc(100% - 20px);
+    position: absolute;
+    top: 10px;
+    right: 0px;
+    padding: 5px 10px;
+    margin: 0px;
+    border-radius: 5px;
+    font-family: vazir;
+    font-size: 1rem;
+    background-color: hsl(0, 0%, 30%);
+}
+
+#header
+{
+    margin: 20px 20px 0px;
+}
+
+span.codePerseneli>input
+{
+    top: 8px;
+    font-family: Shabnam;
+    padding: 6.5px 10px;
+}
+
+input:focus
+{
+    background-color: hsl(0, 0%, 35%);
+}
+
+a.btnHome, a.btnHome:link, a.btnHome:visited
+{
+    padding: 13px;
+    margin-left: 15px;
+}
+
+#kadrMenu
+{
+    position: relative;
+    float: left;
+    width: calc(100% - 60px);
+    overflow: auto;
+    padding: 0px 20px;
+    margin: 20px 20px 0px 0px;
+    border-radius: 0px;
+}
+
+a.itemMenu, a.itemMenu:link, a.itemMenu:visited
+{
+    display: inline-block;
+    float: right;
+    width: 175px;
+    text-align: center;
+    font-family: vazir;
+    font-size: 1.25rem;
+    margin-left: 20px;
+    padding: 15px;
+    color: hsl(202, 100%, 40%);
+    border-radius: 10px 10px 0 0;
+    background-color: hsl(0, 0%, 15%);
+}
+
+a.itemMenu:hover
+{
+    background-color: hsl(0, 0%, 13%);
+    color: hsl(202, 100%, 50%);
+}
+
+a.itemMenu:active
+{
+    background-color: hsl(0, 0%, 12%);
+    color: hsl(202, 100%, 55%);
+    transition: none;
+}
+
+a.itemMenu[data-enekhabi], a.itemMenu:link[data-enekhabi], a.itemMenu:visited[data-enekhabi]
+{
+    background-color: hsl(0, 0%, 10%);
+    color: hsl(202, 100%, 60%);
+}
+
+.kadrListha
+{
+    position: relative;
+    float: left;
+    width: calc(100% - 70px);
+    overflow: auto;
+    margin: 0px 20px;
+    border-radius: 10px;
+    background-color: hsl(0, 0%, 10%);
+    padding: 20px 15px 15px;
+}
+
+h2.titrKadrListha
+{
+    float: right;
+    display: inline-block;
+    margin: 5px 15px 15px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    color: hsl(21, 71%, 62%);
+    font-family: vazir;
+    font-size: 1.5rem;
+}
+
+a.emkanatLST, a.emkanatLST:link, a.emkanatLST:visited
+{
+    float: left;
+    width: 19px;
+    display: inline-block;
+    text-align: center;
+    padding: 10px 14px;
+    border-radius: 10px;
+    margin: 2px 7px 10px;
+    font-family: Shabnam;
+    font-size: 1.2rem;
+    background-color: hsl(0, 0%, 20%);
+    color: hsl(21, 71%, 62%);
+    transition: background-color 0.3s, color 0.3s;
+}
+
+a.emkanatLST:hover
+{
+    background-color: hsl(0, 0%, 30%);
+    color: hsl(21, 71%, 50%);
+    transition: none;
+}
+
+a.emkanatLST:active
+{
+    background-color: hsl(0, 0%, 25%);
+    color: hsl(21, 71%, 70%);
+}
+
+a.btnSearch, a.btnSearch:link, a.btnSearch:visited
+{
+    border-radius: 10px 0px 0px 10px;
+}
+
+.kadrSearch
+{
+    position: relative;
+    float: left;
+    width: 450px;
+    height: 46px;
+    padding-left: 50px;
+    border-radius: 10px;
+    margin: 2px 7px 10px;
+    background-color: hsl(0, 0%, 20%);
+}
+
+a.btnSearch, a.btnSearch:link, a.btnSearch:visited
+{
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin: 0;
+}
+
+input.txtSearch
+{
+    float: right;
+    display: block;
+    width: calc(100% - 65px);
+    padding: 10px 12px 0px 0px;
+    border: 0px;
+    background: transparent;
+    top: 0;
+}
+
+a.zabdarSearchShodeh, a.zabdarSearchShodeh:link, a.zabdarSearchShodeh:visited
+{
+    display: none;
+    position: absolute;
+    top: 12px;
+    right: -20px;
+    font-family: myIcon3;
+    font-size: 1.2rem;
+    color: hsl(21, 71%, 62%);
+}
+
+a.zabdarSearchShodeh:hover
+{
+    color: hsl(21, 71%, 40%);
+}
+
+a.zabdarSearchShodeh:active
+{
+    color: hsl(21, 71%, 50%);
+}
+
+a.emkanatLST>span
+{
+    margin: 0;
+}
+
+.kadrDorListha
+{
+    float: right;
+    overflow: auto;
+    width: 100%;
+}
+
+.rahnama
+{
+    font-family: Shabnam !important;
+    background-color: hsl(0, 0%, 10%) !important;
+}
+
+.rahnama:hover
+{
+    background-color: hsl(0, 0%, 10%) !important;
+}
+
+.rahnama span
+{
+    color: hsl(21, 71%, 75%) !important;
+    padding: 5px 0px !important;
+}
+
+.kadrDorList
+{
+    width: 100%;
+    overflow: auto;
+}
+
+.listha
+{
+    display: inline-block;
+    float: right;
+    width: calc(100% - 29px);
+    text-align: center;
+    cursor: context-menu;
+    font-family: vazir;
+    margin: 2px;
+    padding: 0px 15px 0px 10px;
+    border-radius: 10px;
+    background-color: hsl(0, 0%, 20%);
+    transition: background-color 0.1s;
+}
+
+.listha:hover
+{
+    background-color: hsl(0, 0%, 24%);
+}
+
+span.etelaatFard
+{
+    position: relative;
+    float: right;
+    text-align: right;
+    color: white;
+    margin-left: 15px;
+    white-space: normal;
+}
+
+.listha>span
+{
+    padding: 15px 0px;
+}
+
+.listha>span.icon
+{
+    width: 16px;
+    margin: 4px 5px 4px 10px;
+    color: hsl(21, 71%, 62%);
+}
+
+.listha>span.codePerseneli
+{
+    width: 100px;
+    height: 21px;
+    margin: 2px 10px;
+    font-family: Shabnam;
+}
+
+.listha>span.familFard
+{
+    width: 200px;
+}
+
+.listha>span.namFard
+{
+    width: 180px;
+}
+
+.listha>span.sathFard
+{
+    width: 150px;
+}
+
+.kadrBtnEmkanatFard
+{
+    float: left;
+    height: 30px;
+    margin: 0px;
+}
+
+a.emkanatFard, a.emkanatFard:link, a.emkanatFard:visited
+{
+    text-align: center;
+    float: left;
+    display: inline-block;
+    width: 24px;
+    color: hsl(202, 100%, 60%);
+    font-size: 1.2rem;
+    padding: 12px 10px;
+}
+
+a.emkanatFard:hover
+{
+    color: hsl(202, 100%, 40%);
+}
+
+a.emkanatFard:active
+{
+    color: hsl(202, 100%, 70%);
+}
+
+.kadrBtnTaeedVaLaghv>a.emkanatFard:first-child, .kadrBtnTaeedVaLaghv>a.emkanatFard:first-child:link, .kadrBtnTaeedVaLaghv>a.emkanatFard:first-child:visited, .kadrBtnTaeedVaLaghvBarchasbDasteh>a.emkanatFard:first-child, .kadrBtnTaeedVaLaghvBarchasbDasteh>a.emkanatFard:first-child:link, .kadrBtnTaeedVaLaghvBarchasbDasteh>a.emkanatFard:first-child:visited
+{
+    color: hsl(131, 100%, 80%);
+}
+
+.kadrBtnTaeedVaLaghv>a.emkanatFard:first-child:hover, .kadrBtnTaeedVaLaghvBarchasbDasteh>a.emkanatFard:first-child:hover
+{
+    color: hsl(131, 100%, 30%);
+}
+
+.kadrBtnTaeedVaLaghv>a.emkanatFard:first-child:active, .kadrBtnTaeedVaLaghvBarchasbDasteh>a.emkanatFard:first-child:active
+{
+    color: hsl(131, 100%, 20%);
+}
+
+.kadrBtnTaeedVaLaghv>a.emkanatFard:last-child, .kadrBtnTaeedVaLaghv>a.emkanatFard:last-child:link, .kadrBtnTaeedVaLaghv>a.emkanatFard:last-child:visited, .kadrBtnTaeedVaLaghvBarchasbDasteh>a.emkanatFard:last-child, .kadrBtnTaeedVaLaghvBarchasbDasteh>a.emkanatFard:last-child:link, .kadrBtnTaeedVaLaghvBarchasbDasteh>a.emkanatFard:last-child:visited
+{
+    color: hsl(0, 100%, 80%);
+}
+
+.kadrBtnTaeedVaLaghv>a.emkanatFard:last-child:hover, .kadrBtnTaeedVaLaghvBarchasbDasteh>a.emkanatFard:last-child:hover
+{
+    color: hsl(0, 100%, 65%);
+}
+
+.kadrBtnTaeedVaLaghv>a.emkanatFard:last-child:active, .kadrBtnTaeedVaLaghvBarchasbDasteh>a.emkanatFard:last-child:active
+{
+    color: hsl(0, 100%, 50%);
+}
+
+a.emkanatFard>span
+{
+    margin: 0;
+}
+
+.barchasbha
+{
+    display: inline-block;
+    float: right;
+    width: calc(33.333% - 29px);
+    cursor: context-menu;
+    font-family: vazir;
+    color: white;
+    margin: 2px;
+    padding: 0px 15px 0px 10px;
+    border-radius: 10px;
+    background-color: hsl(0, 0%, 20%);
+    transition: background-color 0.1s;
+}
+
+.barchasbha:hover
+{
+    background-color: hsl(0, 0%, 24%);
+}
+
+.barchasbha>span
+{
+    padding: 15px 0px;
+}
+
+.barchasbha>span.icon
+{
+    float: right;
+    width: 16px;
+    margin: 4px 5px 4px 20px;
+    color: hsl(21, 71%, 62%);
+}
+
+.barchasbha>span.barchasb
+{
+    position: relative;
+    float: right;
+    display: inline-block;
+    width: calc(100% - 129px);
+    height: 25px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.dastehha
+{
+    display: inline-block;
+    float: right;
+    width: calc(100% - 29px);
+    cursor: context-menu;
+    font-family: vazir;
+    color: white;
+    margin: 2px;
+    padding: 0px 15px 0px 10px;
+    border-radius: 10px;
+    background-color: hsl(0, 0%, 20%);
+    transition: background-color 0.1s;
+}
+
+.dastehha:hover
+{
+    background-color: hsl(0, 0%, 24%);
+}
+
+.dastehha>span
+{
+    padding: 15px 0px;
+}
+
+.dastehha>span.icon
+{
+    float: right;
+    width: 16px;
+    margin: 4px 5px 4px 20px;
+    color: hsl(21, 71%, 62%);
+}
+
+.dastehha>span.dasteh
+{
+    position: relative;
+    float: right;
+    display: inline-block;
+    width: 400px;
+    white-space: normal;
+    margin-left: 20px;
+}
+
+.dastehha>span.sathDasteh
+{
+    position: relative;
+    float: right;
+    display: inline-block;
+    width: 150px;
+    white-space: normal;
+}
+
+.kadrBarchasbhaDasteh
+{
+    display: none;
+    width: 100%;
+    padding: 10px 0px;
+    margin-top: 10px;
+    overflow: auto;
+    border-top: 1px solid hsl(0, 0%, 40%);
+}
+
+.pdfha
+{
+    display: inline-block;
+    float: right;
+    width: calc(100% - 29px);
+    cursor: context-menu;
+    font-family: vazir;
+    color: white;
+    margin: 2px;
+    padding: 0px 15px 0px 10px;
+    border-radius: 10px;
+    background-color: hsl(0, 0%, 20%);
+    transition: background-color 0.1s;
+}
+
+.pdfha:hover
+{
+    background-color: hsl(0, 0%, 24%);
+}
+
+.pdfha>span
+{
+    padding: 15px 0px;
+}
+
+.pdfha>span.icon
+{
+    float: right;
+    width: 16px;
+    margin: 4px 5px 4px 20px;
+    color: hsl(21, 71%, 62%);
+}
+
+.pdfha>span.dasteh
+{
+    float: right;
+    display: inline-block;
+    width: 400px;
+    white-space: normal;
+}
+
+.pdfha>span.tarikhErsal
+{
+    float: right;
+    display: inline-block;
+    width: 150px;
+    white-space: normal;
+    font-family: Shabnam;
+}
+
+.pdfha>span.zamanErsal
+{
+    float: right;
+    display: inline-block;
+    white-space: normal;
+    font-family: Shabnam;
+}
+
+.kadrAfzoodan
+{
+    float: right;
+    width: 100%;
+    overflow: auto;
+}
+
+.kadrDorEtelaat
+{
+    float: right;
+    width: calc(25% - 63px);
+    padding: 0px 10px 10px;
+    overflow: auto;
+}
+
+.iconEtelaatAfzoodan
+{
+    text-align: center;
+    float: right;
+    margin: 4px 2px 4px 10px;
+    color: hsl(21, 71%, 62%);
+    font-family: myIcon3;
+}
+
+.titrEtelaatAfzoodan
+{
+    float: right;
+    font-family: vazir;
+    margin-left: 5px;
+    color: white;
+}
+
+.meghdarEtelaatAfzoodan
+{
+    float: right;
+    width: 100%;
+    margin-top: 10px;
+}
+
+.meghdarEtelaatAfzoodan input, .meghdarEtelaatAfzoodan select
+{
+    position: static;
+}
+
+a.btnAfzoodan, a.btnAfzoodan:link, a.btnAfzoodan:visited
+{
+    float: right;
+    margin: 18px 10px 0px;
+    padding: 10px 20px;
+    border-radius: 10px;
+    color: hsl(0, 0%, 100%);
+    background-color: hsl(202, 100%, 40%);
+    font-family: vazir;
+    transition: background-color 0.1s;
+}
+
+a.btnAfzoodan:hover
+{
+    background-color: hsl(202, 100%, 30%);
+}
+
+a.btnAfzoodan:active
+{
+    background-color: hsl(202, 100%, 25%);
+    transition: none;
+}
+
+.kadrJoziat
+{
+    float: right;
+    width: calc(100% - 20px);
+    margin: 10px;
+    overflow: auto;
+}
+
+h3.titrKadrJoziat
+{
+    float: right;
+    width: 100%;
+    font-family: vazir;
+    font-size: 1rem;
+    font-weight: normal;
+    color: white;
+    margin: 0px 0px 10px;
+}
+
+h3.titrKadrJoziat>span.icon
+{
+    color: hsl(21, 71%, 62%);
+}
+
+a.joziat, a.joziat:link, a.joziat:visited
+{
+    float: right;
+    overflow: auto;
+    padding: 10px 15px;
+    margin: 2px;
+    font-family: vazir;
+    font-size: 1rem;
+    border-radius: 10px;
+    transition: background-color 0.1s;
+}
+
+a.joziat:hover
+{
+    background-color: hsl(0, 0%, 14%);
+}
+
+a.joziat:active
+{
+    background-color: hsl(0, 0%, 15%);
+    transition: none;
+}
+
+a.joziat>span.icon
+{
+    float: right;
+    margin-top: 4px;
+    color: hsl(0, 0%, 80%);
+}
+
+a.joziat:hover>span.icon
+{
+    color: hsl(0, 0%, 100%);
+}
+
+a.joziat[data-entekhabi]
+{
+    color: hsl(202, 100%, 50%);
+}
+
+a.joziat[data-entekhabi]>span.icon
+{
+    color: hsl(202, 100%, 50%);
+}
+
+
+
+#kadrKolAmar
+{
+    position: relative;
+    float: left;
+    width: calc(100% - 70px);
+    overflow: auto;
+    margin: 20px;
+    border-radius: 10px;
+    background-color: hsl(0, 0%, 10%);
+    padding: 0px 15px 20px;
+}
+
+.kadrAmar
+{
+    float: right;
+    width: 100%;
+    overflow: auto;
+}
+
+h3.titrKadrAmar
+{
+    float: right;
+    width: calc(100% - 30px);
+    display: inline-block;
+    margin: 20px 15px 10px;
+    color: hsl(21, 71%, 62%);
+    font-family: vazir;
+    font-size: 1.25rem;
+}
+
+.kadrDorAmar
+{
+    width: 100%;
+    overflow: auto;
+}
+
+.amar
+{
+    display: block;
+    float: right;
+    /*width: calc(33.333% - 34px);*/
+    cursor: context-menu;
+    font-family: vazir;
+    color: white;
+    margin: 3px;
+    padding: 10px 15px;
+    border-radius: 10px;
+    background-color: hsl(0, 0%, 20%);
+}
+
+.titrAmar
+{
+    float: right;
+}
+
+.titrAmar>.icon
+{
+    color: hsl(21, 71%, 62%);
+}
+
+.meghdarAmar
+{
+    float: right;
+    margin-right: 15px;
+    color: hsl(202, 100%, 50%);
+}
+
+.meghdarAmar.amarAdadi
+{
+    font-family: Shabnam;
+}
