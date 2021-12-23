@@ -162,24 +162,6 @@ include ("code/etesal-db.php");
 </head>
 <body dir="rtl">
 <div id="fullCountainer">
-
-    <?php
-        $sql = "select address, adad from tbl_captcha order by rand() limit 1;";
-        $result = $con->query($sql);
-        if ($result !== false && $result->num_rows > 0)
-        {
-            if ($row = $result->fetch_assoc())
-            {
-                $addressCaptcha = $row["address"];
-                $_SESSION["adadCaptcha"] = $row["adad"];
-            }
-        }
-        else
-        {
-            die();
-        }
-    ?>
-
     <div id="CountainerKadrNamayeshPeygham">
         <div id="kadrNamayeshPeygham">
             <form action="index.php" method="post" id="kadrPeygham">
@@ -189,12 +171,12 @@ include ("code/etesal-db.php");
                         <input type="text" name="codePerseneli" placeholder="کد پرسنلی" size="11" autocomplete="off" maxlength="6" value="<?php if (isset($_POST["codePerseneli"])) echo $_POST["codePerseneli"]; ?>"/>
                         <input type="password" name="ramz" placeholder="رمز عبور" size="11" maxlength="8" autocomplete="off"/>
                         <input type="text" name="codeAmniat" placeholder="کد امنیتی" size="11" autocomplete="off" maxlength="5"/>
-                        <img id="captcha" src="pic/captcha/<?php echo $addressCaptcha;?>.jpg"/>
+                        <img id="captcha" src="captcha.php"/>
                     </div>
                 </div>
                 <?php
                 if (isset($talashZiad) && $talashZiad)
-                    echo '<span id="peyghamKhataVorood" style="margin: 0">لطفا بعد از 30 دقیقه دوباره تلاش کنید.</span>';
+                    echo '<span id="peyghamKhataVorood" style="margin: 0">لطفا بعد از چند دقیقه دوباره تلاش کنید.</span>';
                 elseif (isset($voroodMovafagh) && !$voroodMovafagh)
                     echo '<span id="peyghamKhataVorood">اطلاعات وارد شده صحیح نمی باشد.</span>';
 
@@ -204,7 +186,6 @@ include ("code/etesal-db.php");
             </form>
         </div>
     </div>
-
 </div>
 </body>
 </html>

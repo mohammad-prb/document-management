@@ -2200,7 +2200,7 @@ if (isset($_POST["dasteh"]) && is_uploaded_file($_FILES['myfile']['tmp_name']))
         if ($pasvand !== "pdf")
             throw new Exception("er:pdf");
 
-        if ($_FILES["myfile"]["size"] > 20000000) // 20MB
+        if ($_FILES["myfile"]["size"] > 20971520) // 20MB
             throw new Exception("er:size");
 
         if (move_uploaded_file($_FILES["myfile"]["tmp_name"], $maghsadMovaghat))
