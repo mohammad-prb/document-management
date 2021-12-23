@@ -48,7 +48,7 @@ else
 
 include ("code/etesal-db.php");
 
-$sql = @"select address from tbl_pdf
+$sql = @"select tbl_pdf.id as idPDF from tbl_pdf
         inner join tbl_dasteh on dastehID = tbl_dasteh.id
         where tbl_pdf.vaziat = 1 and tbl_pdf.id = " . $idFile . " and tbl_dasteh.vaziat = 1 and sath >= " . $_SESSION["sathFard"];
 $result = $con->query($sql);
@@ -56,7 +56,7 @@ if ($result !== false && $result->num_rows > 0)
 {
     if ($row = $result->fetch_assoc())
     {
-        $addressFile = $row["address"];
+        $addressFile = $row["idPDF"];
     }
 }
 else
@@ -69,6 +69,6 @@ $con->close();
 
 header('Content-Type: application/pdf');
 
-$file = fopen("pdf/".$addressFile, "r");
-$reshtehFile = fread($file, filesize("pdf/".$addressFile));
+$file = fopen("pdf/" . $addressFile . ".pdf", "r");
+$reshtehFile = fread($file, filesize("pdf/" . $addressFile . ".pdf"));
 echo $reshtehFile . encodeTarikhVaSaatVaCode(jdate("YmdHi", "", "", "Asia/Tehran", "en"), $_SESSION["codePerseneli"]);

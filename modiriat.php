@@ -2188,53 +2188,39 @@ function sabtBarchasb()
 if (isset($_POST["dasteh"]) && is_uploaded_file($_FILES['myfile']['tmp_name']))
 {
     $dastehID = (integer)$_POST["dasteh"];
-    $maghsadFile = "pdf/" . basename($_FILES["myfile"]["name"]);
+    $maghsadMovaghat = "pdf/tmp/" . basename($_FILES["myfile"]["name"]);
     $uploadOk = 1;
-    $pasvand = strtolower(pathinfo($maghsadFile, PATHINFO_EXTENSION));
+    $pasvand = strtolower(pathinfo($maghsadMovaghat, PATHINFO_EXTENSION));
 
     try
     {
         if ($dastehID == 0)
-        {
             throw new Exception("er:dasteh");
-        }
 
         if ($pasvand !== "pdf")
-        {
             throw new Exception("er:pdf");
-        }
-
-        if (!englisiAst(basename($_FILES["myfile"]["name"])))
-        {
-            throw new Exception("er:farsi");
-        }
-
-        if (file_exists($maghsadFile))
-        {
-            throw new Exception("er:esm");
-        }
 
         if ($_FILES["myfile"]["size"] > 20000000) // 20MB
-        {
             throw new Exception("er:size");
-        }
 
-        if (move_uploaded_file($_FILES["myfile"]["tmp_name"], $maghsadFile))
+        if (move_uploaded_file($_FILES["myfile"]["tmp_name"], $maghsadMovaghat))
         {
             $tarikhErsal = jdate("Y-m-d", "", "", "Asia/Tehran", "en");
             $zamanErsal = jdate("H:i:s", "", "", "Asia/Tehran", "en");
             require_once ("code/etesal-db.php");
 
-            $sql = "insert into tbl_pdf (address, dastehID, tarikhErsal, zamanErsal) values (?,?,?,?)";
+            $sql = "insert into tbl_pdf (dastehID, tarikhErsal, zamanErsal) values (?,?,?)";
             $stmt = $con->prepare($sql);
-            $stmt->bind_param("siss", basename($_FILES["myfile"]["name"]), $dastehID, $tarikhErsal, $zamanErsal);
+            $stmt->bind_param("iss", $dastehID, $tarikhErsal, $zamanErsal);
             if ($stmt->execute() == true)
             {
+                $idMatlab = $stmt->insert_id;
+                rename($maghsadMovaghat, "pdf/".$idMatlab.".pdf");
                 echo 'namayeshPeygham("آپلود فایل موفقیت آمیز بود", "این فایل اکنون در سامانه قابل رویت است", 0, "", "hsl(117,100%,71%)");';
             }
             else
             {
-                unlink("pdf/" . basename($_FILES["myfile"]["name"]));
+                unlink("pdf/tmp/" . basename($_FILES["myfile"]["name"]));
                 echo 'namayeshPeygham("خطای آپلود!", "لطفا دوباره تلاش کنید", 0, "", "hsl(0,100%,68%)");';
             }
             $stmt->close();
@@ -2242,33 +2228,16 @@ if (isset($_POST["dasteh"]) && is_uploaded_file($_FILES['myfile']['tmp_name']))
 
             echo 'namayeshPeygham("آپلود فایل موفقیت آمیز بود", "این فایل اکنون در سامانه قابل رویت است", 0, "", "hsl(117,100%,71%)");';
         }
-        else
-        {
-            throw new Exception("er:upload");
-        }
+        else throw new Exception("er:upload");
     }
     catch (Exception $e)
     {
         if ($e->getMessage() == "er:pdf")
-        {
             echo 'namayeshPeygham("خطای آپلود!", "لطفا یک فایل پی دی اف انتخاب کنید", 0, "", "hsl(0,100%,68%)");';
-        }
         elseif ($e->getMessage() == "er:size")
-        {
             echo 'namayeshPeygham("خطای آپلود!", "اندازه فایل نباید بیشتر از 20 مگابایت باشد", 0, "", "hsl(0,100%,68%)");';
-        }
-        elseif ($e->getMessage() == "er:farsi")
-        {
-            echo 'namayeshPeygham("خطای آپلود!", "اسم فایل باید انگلیسی باشد", 0, "", "hsl(0,100%,68%)");';
-        }
-        elseif ($e->getMessage() == "er:esm")
-        {
-            echo 'namayeshPeygham("خطای آپلود!", "اسم فایل تکراری است", 0, "", "hsl(0,100%,68%)");';
-        }
         elseif ($e->getMessage() == "er:upload" || $e->getMessage() == "er:dasteh")
-        {
             echo 'namayeshPeygham("خطای آپلود!", "لطفا دوباره تلاش کنید", 0, "", "hsl(0,100%,68%)");';
-        }
     }
 
     echo 'entekhabListFileha();';
