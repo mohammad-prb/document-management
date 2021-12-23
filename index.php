@@ -65,30 +65,30 @@ if (isset($_GET["ho"]))
 $voroodModir = true;
 if (!isset($_SESSION["tedadTalashModir"]) || $_SESSION["tedadTalashModir"] <= 3)
 {
-    if (isset($_POST["voroodModir"]) && isset($_POST["username"]) && isset($_POST["pass"]))
+    if (isset($_POST["voroodModir"]) && isset($_POST["username"]) && isset($_POST["pass"]) && isset($_POST["codeAmniat"]))
     {
-        if (isset($_SESSION["tedadTalashModir"])) $_SESSION["tedadTalashModir"]++;
-        else $_SESSION["tedadTalashModir"] = 1;
-        $talashZiadModir = false;
-
-        $username = htmlspecialchars(stripcslashes(trim($_POST["username"])));
-        $ramz = htmlspecialchars(stripcslashes(trim($_POST["pass"])));
-
-        if ($username === USERNAME_MODIR && $ramz === PASSWORD_MODIR)
+        $codeAmniat = (integer)htmlspecialchars(stripcslashes(trim($_POST["codeAmniat"])));
+        if ($codeAmniat == $_SESSION["adadCaptcha"])
         {
-            $_SESSION["modir"] = "loginAst";
-            unset($_SESSION["tedadTalashModir"]);
+            if (isset($_SESSION["tedadTalashModir"])) $_SESSION["tedadTalashModir"]++;
+            else $_SESSION["tedadTalashModir"] = 1;
+            $talashZiadModir = false;
+
+            $username = htmlspecialchars(stripcslashes(trim($_POST["username"])));
+            $ramz = htmlspecialchars(stripcslashes(trim($_POST["pass"])));
+
+            if ($username === USERNAME_MODIR && $ramz === PASSWORD_MODIR)
+            {
+                $_SESSION["modir"] = "loginAst";
+                unset($_SESSION["tedadTalashModir"]);
+                header("location:modiriat.php");
+            }
+            else $voroodModir = false;
         }
-        else
-        {
-            $voroodModir = false;
-        }
+        else $voroodModir = false;
     }
 }
-else
-{
-    $talashZiadModir = true;
-}
+else $talashZiadModir = true;
 
 if (isset($_GET["kh"]))
 {
@@ -114,7 +114,6 @@ $token = $_SESSION["token"];
 <!DOCTYPE html>
 <html lang="fa-ir">
 <head>
-    <?php if (isset($_POST["voroodModir"]) && isset($_SESSION["modir"])) echo "<script>window.open('modiriat.php', '_self');</script>";?>
     <title>مستندات صفا رایحه</title>
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -251,17 +250,6 @@ $token = $_SESSION["token"];
     <?php
     if ($_SESSION["sathFard"] === 1)
     {
-        $sql = "select address, adad from tbl_captcha order by rand() limit 1;";
-        $result = $con->query($sql);
-        if ($result !== false && $result->num_rows > 0)
-        {
-            if ($row = $result->fetch_assoc())
-            {
-                $addressCaptchaModir = $row["address"];
-                $_SESSION["adadCaptchaModir"] = $row["adad"];
-            }
-        }
-
         echo @'<div id="CountainerKadrNamayeshPeygham" style="display: none">
                     <div id="kadrNamayeshPeygham">
                         <form action="index.php" method="post" id="kadrPeygham">
@@ -271,7 +259,7 @@ $token = $_SESSION["token"];
                                     <input type="text" name="username" placeholder="نام کاربری" size="11" autocomplete="off" value="' .  (isset($_POST["username"]) ? $_POST["username"] : "") . @'"/>
                                     <input type="password" name="pass" placeholder="رمز عبور" size="11" autocomplete="off"/>
                                     <input type="text" name="codeAmniat" placeholder="کد امنیتی" size="11" autocomplete="off" maxlength="5"/>
-                                    <img id="captcha" src="pic/captcha/' . $addressCaptchaModir . @'.jpg"/>
+                                    <img id="captcha" src="captcha.php"/>
                                 </div>
                             </div>' .
                             (isset($talashZiadModir) && $talashZiadModir ? '<span id="peyghamKhataVorood" style="margin: 0">لطفا بعد از 30 دقیقه دوباره تلاش کنید.</span>' : (isset($voroodModir) && !$voroodModir ? '<span id="peyghamKhataVorood">اطلاعات وارد شده صحیح نمی باشد.</span>' : '')) .
